@@ -1,3 +1,10 @@
-export const ADD_BOOKS="ADD_BOOKS"
+// Library
+export const ADD_BOOKS_MAN="ADD_BOOKS_MAN"
+export const ADD_BOOKS_GOOG="ADD_BOOKS_GOOG"
 export const DEL_BOOK="DEL_BOOK"
 export const DEL_BOOKS="DEL_BOOKS"
+
+//fetch
+export const FETCH_BOOKS_LOADING="FETCH_BOOKS_LOADING"
+export const FETCH_BOOKS_SUCCESS="FETCH_BOOKS_SUCCESS"
+export const FETCH_BOOKS_ERROR="FETCH_BOOKS_ERROR"

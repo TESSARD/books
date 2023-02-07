@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addBooks, delAllBooks, delBook } from '../redux/actions/actionAddBooks';
+import { addBooksMan, delAllBooks, delBook } from '../redux/actions/actionAddBooks';
 import FlipMove from 'react-flip-move';
 
 
@@ -26,7 +26,7 @@ const AddBooks = () => {
     const handleSubmit = e => {
         e.preventDefault()//En cliquant sur un bouton "Soumettre", l'empêcher de soumettre un formulaire donc la page ne pa réchargé 
         // console.log(newData)
-        dispatch(addBooks(newData))
+        dispatch(addBooksMan(newData))
         //Vider le input
         setNewData(initialState)
 
@@ -102,7 +102,7 @@ const AddBooks = () => {
                 </div>
 
             </div>
-            <div class='container ' style={{ minHeight: "200px" }}>
+            <div className='container ' style={{ minHeight: "200px" }}>
                 <div className="row">
                     <div className="col-md-12">
                         <ul className="list-group">

@@ -1,9 +1,16 @@
-import { ADD_BOOKS, DEL_BOOK, DEL_BOOKS } from "../reducers/constants";
+import { ADD_BOOKS_MAN, ADD_BOOKS_GOOG, DEL_BOOK, DEL_BOOKS } from "../reducers/constants";
 
-export const addBooks=data=>{
+export const addBooksMan=data=>{
     return{
 
-        type:ADD_BOOKS,
+        type:ADD_BOOKS_MAN,
+        payload: data /*object*/
+    }
+}
+export const addBooksGoog=data=>{
+    return{
+
+        type:ADD_BOOKS_GOOG,
         payload: data /*object*/
     }
 }

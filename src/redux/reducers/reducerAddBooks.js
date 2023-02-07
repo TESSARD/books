@@ -1,5 +1,5 @@
 import { v4 as uuiv4 } from "uuid";
-import { ADD_BOOKS, DEL_BOOK, DEL_BOOKS } from "./constants";
+import { ADD_BOOKS_MAN, ADD_BOOKS_GOOG, DEL_BOOK, DEL_BOOKS } from "./constants";
 
 
 const initialState = {
@@ -8,12 +8,46 @@ const initialState = {
 }
 
 
-const helperAddData=action=>{
+const helperAddDataMan=action=>{
     return{
         id:uuiv4(),
+        // id:action.payload.id,
         title:action.payload.title,
         author:action.payload.author
     }
+
+}
+const helperAddDataGoog=(state,action)=>{
+  // console.log(state.length())
+  
+  if (state!==null) {
+    const books =state.filter(book=> book.id !==action.payload.id)
+    // console.log("state.length>0")
+
+    const newBook={
+      id:action.payload.id,
+      title:action.payload.title,
+      author:action.payload.author}
+       const newBooks =[...books,newBook] 
+
+      return newBooks
+          
+      
+  } else{
+    // console.log("else")
+
+    const book={
+      id:action.payload.id,
+      title:action.payload.title,
+      author:action.payload.author}
+      const newBooks =book
+
+      return newBooks
+          
+      
+  }
+
+    
 
 }
 const delDataBook=(state, id)=>{
@@ -29,8 +63,16 @@ export const reducerAddBooks =(state = initialState.books, action) => {
     }
   switch (action.type) {
 
-  case ADD_BOOKS:
-    state=[...state, helperAddData(action)]
+  case ADD_BOOKS_MAN:
+    
+    state=[...state, helperAddDataMan(action)]
+    localStorage.setItem("booksData", JSON.stringify(state))
+    return state
+
+  case ADD_BOOKS_GOOG:
+    
+    console.log(state)
+    state=helperAddDataGoog(state, action)
     localStorage.setItem("booksData", JSON.stringify(state))
     return state
 
